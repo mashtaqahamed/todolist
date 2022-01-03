@@ -1,0 +1,11 @@
+.mainbuttons{
+    /* display: flex; */
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.main-btn{
+   
+    margin: 10px;
+    border-radius: 10px;
+}

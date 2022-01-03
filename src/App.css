@@ -1,0 +1,10 @@
+.App{
+  text-align: center;
+}
+
+.Signup{
+  display: flexbox;
+  margin: 4px;
+  padding: 0, 10px;
+  width: 40px;
+}

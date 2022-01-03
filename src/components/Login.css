@@ -1,0 +1,31 @@
+
+.shw{
+    display: flexbox;
+    justify-content: end;
+  background-color: rgb(250, 250, 250);
+  width: 80px;
+  margin: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.log{
+    display: flexbox;
+    justify-content: end;
+  background-color: rgb(250, 250, 250);
+  width: 80px;
+  margin: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  
+}
+.to{
+  display: flex;
+  margin: 10px;
+  border-radius: 8px;
+}
+
+.to-btn{
+  display: flex;
+  margin: 10px;
+  border-radius: 8px;
+}

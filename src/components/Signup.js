@@ -1,0 +1,75 @@
+import React,{useState} from 'react';
+import"./Signup.css";
+
+function Signup(props){
+
+	const [username, setUsername] = useState('');
+	const [password1, setPassword1] = useState('');
+	const [password2, setPassword2] = useState('');
+
+	const [passType1, setPassType1] = useState(true);
+	const [passType2, setPassType2] = useState(true);
+
+	var auth = JSON.parse(localStorage.getItem('auth'));
+	
+	const handleSignup=()=>{
+
+		if(auth===null){
+			auth=[{'username':'aaa','password':'aaa'},];
+		}
+			
+		if(password1===password2){
+			
+			const same = auth.filter(d=>d.username===username);
+
+			if(same.length===0){
+				auth = [...auth,{'username':username,'password':password1}];
+				localStorage.setItem('auth',JSON.stringify(auth));
+				localStorage.setItem('userlogined',username);
+				setUsername('');
+				setPassword1('');
+				setPassword2('');
+				props.afterSignup(username);
+			}else{
+				alert(username+' exist!')
+			}
+		}else{
+			alert('Passwords are not matching')
+		}
+	}
+	
+	return(
+		<div className='Signup'>
+		
+			<input className='usertype' type='text' 
+			value={username}
+			onChange={e=>setUsername(e.target.value)}
+			placeholder='Username'/>
+			
+			<input className='usermodel' type={passType1?'password':'text'}
+			value={password1} placeholder='Password'
+			onChange={e=>setPassword1(e.target.value)}
+			 />
+			
+			<button  type="show" className="success" onClick={()=>{setPassType1(!passType1)}}>
+			{passType1?'show':'hide'}</button>
+
+			
+			<input type={passType2?'password':'text'} 
+			 className="cnf-plc" value={password2} placeholder='Confirm Password'
+			onChange={e=>setPassword2(e.target.value)}/>
+			
+
+
+			<button   type="hide" className="hide" onClick={()=>{setPassType2(!passType2)}}>
+			{passType2?'show':'hide'}</button>
+
+			<button  type="signup" className="sign" onClick={handleSignup}>signup</button>
+			
+
+		</div>
+	);
+}
+
+
+export default Signup;
